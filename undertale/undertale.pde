@@ -46,6 +46,7 @@ PImage aaa;
 
 ArrayList <Integer> random;
 
+int asdf;
 int once=0;
 int skip=0;
 int ing;
