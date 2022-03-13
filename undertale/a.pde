@@ -42,17 +42,9 @@ void battle14()
       zy.set(i, tama.fy+200*sin(radians(60*i+sdeg)));
       cx=tama.fx-zx.get(i);
       cy=tama.fy-zy.get(i);
-      cz=sq(cx)+sq(cy);
-      if (cx<0)
-        speedx.set(i, -sq(cx)/cz*sspeed);
-      else
-        speedx.set(i, sq(cx)/cz*sspeed);
-
-      if (cy<0)
-        speedy.set(i, -sq(cy)/cz*sspeed);
-      else
-        speedy.set(i, sq(cy)/cz*sspeed);
-
+      cz=sqrt(sq(cx)+sq(cy));
+      speedx.set(i, cx/cz*sspeed);
+      speedy.set(i, cy/cz*sspeed);
 
       pushMatrix();
       translate(tama.fx+200*cos(radians(60*i+sdeg)), tama.fy+200*sin(radians(60*i+sdeg)));
@@ -94,12 +86,11 @@ void battle14()
 
       if (dist(gx+13.5, gy+13.5, zx.get(i), zy.get(i))<=23)
       {
-        noLoop();
         hit=1;
       }
 
-      fill(255, 0, 0);
-      ellipse(zx.get(i), zy.get(i), 20, 20);
+      /*fill(255, 0, 0);
+       ellipse(zx.get(i), zy.get(i), 33, 33);*/
       zx.set(i, zx.get(i)+speedx.get(i));
       zy.set(i, zy.get(i)+speedy.get(i));
 
@@ -126,15 +117,15 @@ void battle14()
     i2+=6;
     ei1+=6;
     ei2+=6;
-    /*sdeg+=50;
-     if (sdeg2<=0.2)
-     sdeg2+=0.02;
-     if (i1>=24 && i1<=54)
-     {
-     sspeed+=0.3;
-     bet-=5;
-     stint+=2;
-     }*/
+    sdeg+=50;
+    if (sdeg2<=0.2)
+      sdeg2+=0.02;
+    if (i1>=24 && i1<=54)
+    {
+      sspeed+=0.3;
+      bet-=5;
+      stint+=2;
+    }
     feel=bb;
 
     break;
