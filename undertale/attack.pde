@@ -13,7 +13,8 @@ void attack()
   } else {
     if (keyPressed && key==ENTER)
     {
-      //killsound.play();
+      killsound.play();
+      killsound.rewind();
       damage=1750-floor(abs(bx-600))*3;
       damages=damage;
       uhp-=damage;

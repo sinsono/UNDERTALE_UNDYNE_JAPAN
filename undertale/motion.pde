@@ -50,7 +50,7 @@ void motion()
               else
                 if (movec<100)
                 {
-                  uhb=map(uhp, 0, 40000, 0, 340);
+                  uhb=map(uhp, 0, 30000, 0, 340);
                   fill(#17D34E);
                   rect(width/2, 400, 340, 20);
                   rectMode(CORNER);

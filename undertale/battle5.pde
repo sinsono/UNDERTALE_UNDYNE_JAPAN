@@ -105,7 +105,8 @@ void battle5()
 
   case finish:
 
-    sep=false;
+    if (onlyred==0)
+      sep=false;
     Rect.smalg();
 
     break;

@@ -68,7 +68,7 @@ void battle4()
         tama.speed=tama.speed*1.03;
 
       /*fill(255, 0, 0);
-      ellipse(zx.get(i), zy.get(i), 33, 33);*/
+       ellipse(zx.get(i), zy.get(i), 33, 33);*/
       zx.add(i, speedx.get(i));
       zy.add(i, speedy.get(i));
 

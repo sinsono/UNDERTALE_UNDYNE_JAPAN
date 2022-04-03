@@ -10,8 +10,8 @@ void title()
   image(title, width/2, height/2, width+200, height);
   imageMode(CORNER);
   text("yourname:", 300, 700);
-  
-  
+
+
   if (fillc1%2==0)
     stroke(255);
   else

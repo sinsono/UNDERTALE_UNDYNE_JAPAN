@@ -121,6 +121,7 @@ class Rect {
             stroke=255;
             if (tintbasic<=245 && btint<=245)
             {
+              hptint+=2;
               btint+=2;
               tintbasic+=2;
             }
@@ -154,6 +155,7 @@ class Rect {
           stroke=255;
           if (tintbasic<=245 && btint<=245)
           {
+            hptint+=2;
             btint+=2;
             tintbasic+=2;
           }
@@ -185,6 +187,7 @@ class Rect {
       } else {
         if (tintbasic<=245 && btint<=245)
         {
+          hptint+=2;
           btint+=2;
           tintbasic+=2;
         }
@@ -207,6 +210,7 @@ class Rect {
       {
         if (tintbasic<=245 && btint<=245)
         {
+          hptint+=2;
           btint+=2;
           tintbasic+=2;
         }

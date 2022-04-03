@@ -1,6 +1,22 @@
+Gif move;
+
+Movie dead;
+
+Minim minim;
+AudioPlayer titlebgm;
+AudioPlayer bgm;
+AudioPlayer killsound;
+AudioPlayer loud;
+AudioPlayer decide;
+AudioPlayer select;
+AudioPlayer save;
+AudioPlayer hits;
+
+
 ArrayList<Boolean> hmovem;
 
 int frame=60;
+
 
 void setup()
 {
@@ -11,10 +27,12 @@ void setup()
   minim = new Minim(this);
   titlebgm = minim.loadFile("titlebgm.mp3");
   bgm = minim.loadFile("bgm.mp3");
-  /* killsound = minim.loadFile("attack.wav");
-   loud = minim.loadFile("loud.mp3");
-   select = minim.loadFile("select.mp3");
-   decide = minim.loadFile("decide.mp3");*/
+  killsound = minim.loadFile("attack.mp3");
+  loud = minim.loadFile("loud.mp3");
+  select = minim.loadFile("select.mp3");
+  decide = minim.loadFile("decide.mp3");
+  save = minim.loadFile("save.mp3");
+  hits = minim.loadFile("hits.mp3");
 
   item = new ArrayList();
   top3 = new ArrayList();

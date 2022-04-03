@@ -100,7 +100,8 @@ void battle9()
     {
       t++;
     } else {
-      sep=false;
+      if (onlyred==0)
+        sep=false;
       Rect.smalg();
     }
 

@@ -32,7 +32,8 @@ void battle2()
         if (tama.y>=330+i*inta)
         {
           if (blockc==tama.dir)
-          {
+          {save.play();
+    save.rewind();
             redblock=blockc;
             ii++;
             tama.y=-5000;

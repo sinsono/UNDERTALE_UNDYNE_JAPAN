@@ -14,18 +14,6 @@ Tama tama;
 Explain e;
 Rect Rect;
 
-Gif move;
-
-Movie dead;
-
-Minim minim;
-AudioPlayer titlebgm;
-AudioPlayer bgm;
-AudioPlayer killsound;
-AudioPlayer loud;
-AudioPlayer decide;
-AudioPlayer select;
-
 
 PImage h; //heart
 PImage gh; //green heart
@@ -62,7 +50,7 @@ int undynetint=255;
 int sup3=0;
 int btint=255;
 
-float uhp=40000;
+float uhp=30000;
 float hp=56;
 float hpbar;
 float ebar;
@@ -81,6 +69,7 @@ final int explain=5;
 final int swi=6;
 
 int status=rest;
+int redrandom;
 
 boolean sep=false; //separate  true:red   false:green
 boolean strong=false;
@@ -200,6 +189,11 @@ void draw()
   {
     titlebgm.play();
     title();
+    if (keyPressed==true)
+    {
+      titlebgm.close();
+      scene=1;
+    }
   } else
     if (scene==2)
     {
@@ -271,6 +265,7 @@ void draw()
             }
             if (enterc==2)
             {
+
               e.bunseki();
             }
             if (enterc==3)
@@ -361,8 +356,18 @@ void draw()
           ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         case swi:
 
-          battlec=14;
-          sep=true;
+          if (battlec>=15)
+          {
+            redrandom=int(random(0, 4));
+            if (redrandom==0)
+              battlec=4;
+            if (redrandom==1)
+              battlec=5;
+            if (redrandom==2)
+              battlec=9;
+            if (redrandom==3)
+              battlec=14;
+          }
 
 
           if (battlec==2)
@@ -663,6 +668,8 @@ void draw()
             iii=7;
             i1=0;
             i2=7;
+            setup=0;
+            degd=25;
           }
 
           if (battlec==10)
@@ -847,6 +854,10 @@ void draw()
             i2=6;
             ei1=0;
             ei2=6;
+            stint=5.5;
+            sdeg=0;
+            sspeed=10;
+            bet=70;
           }
 
           if (once==0)
@@ -863,6 +874,7 @@ void draw()
 
           if (tintbasic>=140 && btint>=140)
           {
+            hptint-=2;
             tintbasic-=2;
             btint-=2;
           }
@@ -1014,6 +1026,8 @@ void enter()
 {
   if (keyPressed==true && key==ENTER)
   {
+    decide.play();
+    decide.rewind();
     enterc++;
     keyPressed=false;
   }
@@ -1026,6 +1040,8 @@ void hit()
   {
     if (strong==false)
     {
+      hits.play();
+      hits.rewind();
       hp-=int(random(8, 13));
       strong=true;
     }

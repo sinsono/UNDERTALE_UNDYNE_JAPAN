@@ -25,7 +25,8 @@ void battle11()
           if (tama.y>=-80 && tama.y<=-40)
           {
             if (blockc==tama.dir)
-            {
+            {save.play();
+    save.rewind();
               redblock=blockc;
               ii++;
               ta[i+1].c=1;
@@ -49,7 +50,8 @@ void battle11()
             if (tama.y>=-90)
             {
               if (blockc==tama.dir)
-              {
+              {save.play();
+    save.rewind();
                 redblock=blockc;
                 ii++;
                 tama.y=-5000;

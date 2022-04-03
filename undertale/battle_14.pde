@@ -9,12 +9,11 @@ float bet=70;
 float cx, cy, cz;
 
 int ei1, ei2;
-
+int onlyred=0;
 
 void battle14()
 {
   switch(feel) {
-
 
   case bb:
 
@@ -127,6 +126,8 @@ void battle14()
       stint+=2;
     }
     feel=bb;
+    if (iii>=186)
+      feel=finish;
 
     break;
 
@@ -137,6 +138,7 @@ void battle14()
     {
       t++;
     } else {
+      onlyred=1;
       Rect.smalg();
     }
 

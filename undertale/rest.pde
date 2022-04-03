@@ -4,6 +4,8 @@ int ran;
 
 void rest()
 {
+  if (onlyred==1)
+    battlec=15;
   if (hspeed==7)
   {
     hspeed=5;
@@ -45,7 +47,8 @@ void rest()
     if (keyCode==RIGHT)
     {
       if (sc!=4) {
-        //select.play();
+        select.play();
+        select.rewind();
         sc++;
       }
       keyPressed=false;
@@ -53,7 +56,8 @@ void rest()
       if (keyCode==LEFT)
       {
         if (sc!=1) {
-          //select.play();
+          select.play();
+          select.rewind();
           sc--;
         }
         keyPressed=false;
@@ -64,7 +68,8 @@ void rest()
   {
     if (keyPressed && key==ENTER)
     {
-      //decide.play();
+      decide.play();
+      decide.rewind();
       enterc++;
       keyPressed=false;
       status=explain;
@@ -78,7 +83,8 @@ void rest()
   {
     if (keyPressed && key==ENTER)
     {
-      //decide.play();
+      decide.play();
+      decide.rewind();
       enterc++;
       keyPressed=false;
       status=explain;
@@ -92,7 +98,8 @@ void rest()
   {
     if (keyPressed && key==ENTER)
     {
-      //decide.play();
+      decide.play();
+      decide.rewind();
       enterc++;
       columnc=0;
       itemc=0;

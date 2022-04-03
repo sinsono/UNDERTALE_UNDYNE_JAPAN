@@ -6,6 +6,7 @@ PImage bw; //black wind
 PImage explor;
 PImage uexplain;
 
+int hptint=255;
 int tintbasic=255;
 int stroke=255;
 int timing=0;
@@ -38,10 +39,9 @@ class Explain {
       rect(1100, 550, x, 50);
       if (x<=0)
       {
-        //loud.close();
       } else {
         x-=20;
-        //loud.play();
+        loud.play();
       }
     } else {
 
@@ -54,7 +54,7 @@ class Explain {
       {
       } else
         x-=20;
-      //loud.play();
+      loud.play();
     }
 
     basic();
@@ -64,7 +64,7 @@ class Explain {
   {
     image(heroname, 180, 527, 620, 60);
     heart(140, 543);
-    ebar=map(uhp, 0, 40000, 0, 130);
+    ebar=map(uhp, 0, 30000, 0, 130);
     fill(#18F019);
     rect(700, 555, 130, 20);
     rectMode(CORNER);
@@ -88,24 +88,28 @@ class Explain {
     rect(1100, 549, x1, 50);
     rect(1100, 605, x2, 50);
     rect(1100, 660, x3, 50);
+
+    if (loud.isPlaying()==false)
+      loud.rewind();
+
+    loud.play();
+
     if (x1<=250)
     {
       if (x2<=550)
       {
         if (x3<=450)
         {
+          loud.close();
           timing=1;
         } else {
           x3-=20;
-          //loud.play();
         }
       } else {
         x2-=20;
-        //loud.play();
       }
     } else {
       x1-=20;
-      //loud.play();
     }
 
     /*if (loud.available() == false) {
@@ -234,6 +238,10 @@ class Explain {
 
     image(lvhp, 280, height/1.25, 250, 50);
     image(maxhp, 700, height/1.25, 100, 50);
+    
+    fill(hptint);
+    textSize(35);
+    text(int(hp), 645, height/1.25+40);
 
     if (rectjudge==1)
       fill(0);

@@ -93,6 +93,8 @@ void item()
       if (itemc==itemlength)
       {
       } else {
+        select.play();
+        select.rewind();
         itemc++;
         if (columnc==2)
         {
@@ -108,6 +110,8 @@ void item()
       if (itemc==0)
       {
       } else {
+        select.play();
+        select.rewind();
         itemc--;
         if (columnc==0)
         {
