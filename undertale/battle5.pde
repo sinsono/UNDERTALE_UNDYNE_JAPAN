@@ -70,6 +70,9 @@ void battle5()
 
       if (i2==i+2)
       {
+        if (appear.isPlaying()==false)
+          appear.rewind();
+        appear.play();
         tama.move();
         fill(255, 0, 0);
         if (i%2==0)

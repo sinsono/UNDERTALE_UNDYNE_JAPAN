@@ -30,6 +30,7 @@ void rest()
 
   btint=255;
   tintbasic=255;
+  hptint=255;
   barc1=0;
   barc2=0;
   bartint=255;

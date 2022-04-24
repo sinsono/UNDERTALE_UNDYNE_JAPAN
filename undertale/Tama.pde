@@ -3,7 +3,7 @@ class Tama {
   float x=0;
   float y=0;
   float fx, fy;
-  float xx,yy;
+  float xx, yy;
   float speed;
   float degree;
   float ddeg;

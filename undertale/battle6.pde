@@ -44,8 +44,9 @@ void battle6()
             if (i==5)
               ta[7].c=1;
             if (i==8)
-              feel=finish;save.play();
-    save.rewind();
+              feel=finish;
+            save.play();
+            save.rewind();
             redblock=blockc;
             ii++;
             tama.y=-1000;

@@ -100,7 +100,7 @@ class Explain {
       {
         if (x3<=450)
         {
-          loud.close();
+          loud.pause();
           timing=1;
         } else {
           x3-=20;
@@ -236,9 +236,15 @@ class Explain {
   {
     tint(tintbasic);
 
+    for (int i=0; i<namec; i++)
+    {
+      textSize(30);
+      fill(255);
+      text(name.get(i).toUpperCase(), 100+i*25, height/1.25+42);
+    }
     image(lvhp, 280, height/1.25, 250, 50);
     image(maxhp, 700, height/1.25, 100, 50);
-    
+
     fill(hptint);
     textSize(35);
     text(int(hp), 645, height/1.25+40);

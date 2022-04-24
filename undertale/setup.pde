@@ -1,6 +1,6 @@
 Gif move;
-
-Movie dead;
+Gif gameover;
+Gif up;
 
 Minim minim;
 AudioPlayer titlebgm;
@@ -11,7 +11,11 @@ AudioPlayer decide;
 AudioPlayer select;
 AudioPlayer save;
 AudioPlayer hits;
-
+AudioPlayer encount;
+AudioPlayer food;
+AudioPlayer appear;
+AudioPlayer start;
+AudioPlayer up1;
 
 ArrayList<Boolean> hmovem;
 
@@ -20,26 +24,35 @@ int frame=60;
 
 void setup()
 {
-  move = new Gif(this, "undynemove.gif");
+  move = new Gif(this, "movie/undynemove.gif");
   move.loop();
-  //dead = new Movie(this, "gameover.mp4");
+  //gameover = new Gif(this, "movie/gameover.gif");
+  up = new Gif(this, "movie/up.gif");
+
 
   minim = new Minim(this);
-  titlebgm = minim.loadFile("titlebgm.mp3");
-  bgm = minim.loadFile("bgm.mp3");
-  killsound = minim.loadFile("attack.mp3");
-  loud = minim.loadFile("loud.mp3");
-  select = minim.loadFile("select.mp3");
-  decide = minim.loadFile("decide.mp3");
-  save = minim.loadFile("save.mp3");
-  hits = minim.loadFile("hits.mp3");
+  titlebgm = minim.loadFile("sound/titlebgm.mp3");
+  bgm = minim.loadFile("sound/bgm.mp3");
+  killsound = minim.loadFile("sound/attack.mp3");
+  loud = minim.loadFile("sound/loud.mp3");
+  select = minim.loadFile("sound/select.mp3");
+  decide = minim.loadFile("sound/decide.mp3");
+  save = minim.loadFile("sound/save.mp3");
+  hits = minim.loadFile("sound/hits.mp3");
+  encount = minim.loadFile("soud/encount.mp3");
+  food = minim.loadFile("sound/food.mp3");
+  appear = minim.loadFile("sound/appear.mp3");
+  start = minim.loadFile("sound/start.mp3");
+  up1 = minim.loadFile("sound/up.mp3");
 
   item = new ArrayList();
   top3 = new ArrayList();
   random = new ArrayList<Integer>();
+  dalist = new ArrayList<Integer>();
   guardm = new ArrayList<Boolean>();
   hmovem = new ArrayList<Boolean>();
-  dalist = new ArrayList<Integer>();
+  name = new ArrayList<String>();
+
   speedx = new FloatList();
   speedy = new FloatList();
   zx = new FloatList();
@@ -69,61 +82,60 @@ void setup()
   random.add(4);
 
   title=loadImage("undynesimulater.png");
-  aaa=loadImage("a.jpg");
-  h = loadImage("h.png");
-  gh = loadImage("gh.png");
-  f = loadImage("f.png");
-  a = loadImage("a.png");
-  i = loadImage("i.png");
-  m = loadImage("m.png");
-  cf = loadImage("cf.png");
-  ca = loadImage("ca.png");
-  ci = loadImage("ci.png");
-  cm = loadImage("cm.png");
-  lvhp = loadImage("lvhp.png");
-  maxhp = loadImage("56.png");
-  az = loadImage("attackzone.png");
-  miss = loadImage("miss.png");
-  d1 = loadImage("d1.png"); //damage motion
-  d2 = loadImage("d2.png");
-  d3 = loadImage("d3.png");
-  d4 = loadImage("d4.png");
-  d5 = loadImage("d5.png");
-  d6 = loadImage("d6.png");
-  yuusya = loadImage("yuusya.png");
-  heroname = loadImage("heroname.png");
-  bw = loadImage("blackwind.png");
-  explor = loadImage("bunseki.png");
-  uexplain = loadImage("usetumei.png");
-  column = loadImage("item.jpg");
-  batasuko = loadImage("batasuko.png");
-  spider = loadImage("spider.png");
-  yukidaru = loadImage("yukidaru.png");
-  kissyu = loadImage("kissyu.png");
-  bitya = loadImage("bitya.jpg");
-  eatba = loadImage("eatba.png");
-  eatyukidaru = loadImage("eatyukidaru.png");
-  eatkissyu = loadImage("eatkissyu.png");
-  eatspider = loadImage("usespider.png");
-  eatbitya = loadImage("eatbitya.png");
-  bdown = loadImage("bdown.png");
-  red = loadImage("rdown.png");
-  yellow = loadImage("ydown.png");
-  white = loadImage("bullet.png");
-  blockr = loadImage("blockr.png");
-  blockl = loadImage("blockl.png");
-  blocku = loadImage("blocku.png");
-  blockd = loadImage("blockd.png");
-  da0=loadImage("da0.jpg");
-  da1=loadImage("da1.jpg");
-  da2=loadImage("da2.jpg");
-  da3=loadImage("da3.jpg");
-  da4=loadImage("da4.jpg");
-  da5=loadImage("da5.jpg");
-  da6=loadImage("da6.jpg");
-  da7=loadImage("da7.jpg");
-  da8=loadImage("da8.jpg");
-  da9=loadImage("da9.jpg");
+  h = loadImage("object/h.png");
+  gh = loadImage("object/gh.png");
+  f = loadImage("butten/f.png");
+  a = loadImage("butten/a.png");
+  i = loadImage("butten/i.png");
+  m = loadImage("butten/m.png");
+  cf = loadImage("butten/cf.png");
+  ca = loadImage("butten/ca.png");
+  ci = loadImage("butten/ci.png");
+  cm = loadImage("butten/cm.png");
+  lvhp = loadImage("rest/lvhp.png");
+  maxhp = loadImage("rest/56.png");
+  az = loadImage("rest/attackzone.png");
+  miss = loadImage("effect/miss.png");
+  d1 = loadImage("effect/d1.png"); //damage motion
+  d2 = loadImage("effect/d2.png");
+  d3 = loadImage("effect/d3.png");
+  d4 = loadImage("effect/d4.png");
+  d5 = loadImage("effect/d5.png");
+  d6 = loadImage("effect/d6.png");
+  yuusya = loadImage("rest/yuusya.png");
+  heroname = loadImage("rest/heroname.png");
+  bw = loadImage("rest/blackwind.png");
+  explor = loadImage("rest/bunseki.png");
+  uexplain = loadImage("rest/usetumei.png");
+  column = loadImage("rest/item.jpg");
+  batasuko = loadImage("rest/batasuko.png");
+  spider = loadImage("rest/spider.png");
+  yukidaru = loadImage("rest/yukidaru.png");
+  kissyu = loadImage("rest/kissyu.png");
+  bitya = loadImage("rest/bitya.jpg");
+  eatba = loadImage("rest/eatba.png");
+  eatyukidaru = loadImage("rest/eatyukidaru.png");
+  eatkissyu = loadImage("rest/eatkissyu.png");
+  eatspider = loadImage("rest/usespider.png");
+  eatbitya = loadImage("rest/eatbitya.png");
+  bdown = loadImage("object/bdown.png");
+  red = loadImage("object/rdown.png");
+  yellow = loadImage("object/ydown.png");
+  white = loadImage("object/bullet.png");
+  blockr = loadImage("object/blockr.png");
+  blockl = loadImage("object/blockl.png");
+  blocku = loadImage("object/blocku.png");
+  blockd = loadImage("object/blockd.png");
+  da0=loadImage("effect/da0.jpg");
+  da1=loadImage("effect/da1.jpg");
+  da2=loadImage("effect/da2.jpg");
+  da3=loadImage("effect/da3.jpg");
+  da4=loadImage("effect/da4.jpg");
+  da5=loadImage("effect/da5.jpg");
+  da6=loadImage("effect/da6.jpg");
+  da7=loadImage("effect/da7.jpg");
+  da8=loadImage("effect/da8.jpg");
+  da9=loadImage("effect/da9.jpg");
 
   // b = new Battle();
   e = new Explain();

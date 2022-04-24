@@ -23,8 +23,9 @@ void battle8()
           if (tama.y>=330+i*150)
           {
             if (blockc==tama.dir)
-            {save.play();
-    save.rewind();
+            {
+              save.play();
+              save.rewind();
               redblock=blockc;
               ii++;
               tama.y=-5000;
@@ -47,8 +48,9 @@ void battle8()
             if (tama.y>=-76)
             {
               if (blockc==tama.dir)
-              {save.play();
-    save.rewind();
+              {
+                save.play();
+                save.rewind();
                 redblock=blockc;
                 ii++;
                 tama.y=-5000;
