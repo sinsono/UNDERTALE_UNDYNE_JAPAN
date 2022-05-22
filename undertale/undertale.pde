@@ -182,6 +182,8 @@ void draw()
 
   if (scene==0)
   {
+    if (titlebgm.isPlaying()==false)
+      titlebgm.rewind();
     titlebgm.play();
     title();
   } else
@@ -213,14 +215,25 @@ void draw()
         butten();
         e.basic();
         if (Time>=400)
+        {
+          Time=0;
           scene=1;
+        }
       } else
         if (scene==2)
         {
+          Time++;
+          if (Time>=900)
+          {
+            gv.close();
+            Time=0;
+            scene=0;
+          }
+          gv.play();
           gameover.play();
+          gameover.read();
           imageMode(CENTER);
-          tint(255);
-          image(gameover, width/2, height/2, width+300, height);
+          image(gameover, width/2, height/2, 1000, 600);
         } else
           if (scene==1)
           {
@@ -380,7 +393,7 @@ void draw()
 
               ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case swi:
-              /*battlec=9;
+              /* battlec=14;
                sep=true;*/
 
               if (battlec>=15)
@@ -1099,7 +1112,11 @@ void hit()
     }
 
     if (hp<=0)
+    {
+      bgm.pause();
+      move.stop();
       scene=2;
+    }
   }
   if (hit==3)
   {

@@ -240,7 +240,7 @@ class Explain {
     {
       textSize(30);
       fill(255);
-      text(name.get(i).toUpperCase(), 100+i*25, height/1.25+42);
+      text(name.get(i).toUpperCase(),textx1[i]-465+i*25, height/1.25+42);
     }
     image(lvhp, 280, height/1.25, 250, 50);
     image(maxhp, 700, height/1.25, 100, 50);

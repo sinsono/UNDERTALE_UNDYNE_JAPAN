@@ -1,5 +1,6 @@
+Movie gameover;
+
 Gif move;
-Gif gameover;
 Gif up;
 
 Minim minim;
@@ -16,19 +17,17 @@ AudioPlayer food;
 AudioPlayer appear;
 AudioPlayer start;
 AudioPlayer up1;
+AudioPlayer gv;
 
 ArrayList<Boolean> hmovem;
-
-int frame=60;
 
 
 void setup()
 {
   move = new Gif(this, "movie/undynemove.gif");
   move.loop();
-  //gameover = new Gif(this, "movie/gameover.gif");
   up = new Gif(this, "movie/up.gif");
-
+  gameover = new Movie(this, "gameover.mp4");
 
   minim = new Minim(this);
   titlebgm = minim.loadFile("sound/titlebgm.mp3");
@@ -44,6 +43,7 @@ void setup()
   appear = minim.loadFile("sound/appear.mp3");
   start = minim.loadFile("sound/start.mp3");
   up1 = minim.loadFile("sound/up.mp3");
+  gv = minim.loadFile("sound/gv.mp3");
 
   item = new ArrayList();
   top3 = new ArrayList();
@@ -143,7 +143,7 @@ void setup()
 
   size(1200, 900);
   background(0);
-  frameRate(frame);
+  frameRate(60);
   rectMode(CENTER);
   rectpos=height/1.47;
   noSmooth();

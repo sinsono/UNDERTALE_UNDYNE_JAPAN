@@ -89,7 +89,7 @@ void battle14()
       }
 
       /*fill(255, 0, 0);
-       ellipse(zx.get(i), zy.get(i), 33, 33);*/
+      ellipse(zx.get(i), zy.get(i), 33, 33);*/
       zx.set(i, zx.get(i)+speedx.get(i));
       zy.set(i, zy.get(i)+speedy.get(i));
 

@@ -1,5 +1,7 @@
 PImage title;
 char [] n=new char[8];
+float [] textx=new float[7];
+float [] textx1=new float[7];
 ArrayList <String> name;
 String na;
 
@@ -9,9 +11,12 @@ int namec=0;
 
 void title()
 {
+  textx[0]=565;
+  textx1[0]=565;
   imageMode(CENTER);
   image(title, width/2, height/2, width+300, height);
   imageMode(CORNER);
+  textSize(50);
   text("yourname:", 300, 700);
 
 
@@ -45,9 +50,37 @@ void title()
           namec--;
         }
       } else {
-        n[namec]=key;
-        name.add(namec, String.valueOf(n[namec]));
-        namec++;
+        if (namec!=7)
+        {
+          if (namec!=6)
+          {
+            textx[namec+1]=textx[namec];
+            textx1[namec+1]=textx1[namec];
+          }
+          n[namec]=key;
+          name.add(namec, String.valueOf(n[namec]));
+          namec++;
+          if (namec!=7)
+          {
+            if (key=='i' || key=='j' || key=='f' || key=='l')
+            {
+              if (key=='f')
+              {
+                textx[namec]=textx[namec-1]-5;
+                textx1[namec]=textx1[namec-1]-5*0.625;
+              } else
+              {
+                textx[namec]=textx[namec-1]-10;
+                textx1[namec]=textx1[namec-1]-10*0.625;
+              }
+            } else
+              if (key=='w')
+              {
+                textx[namec]=textx[namec-1]+10;
+                textx1[namec]=textx1[namec-1]+10*0.625;
+              }
+          }
+        }
       }
     }
     keyPressed=false;
@@ -57,6 +90,6 @@ void title()
   {
     fill(255);
     textSize(50);
-    text(name.get(i).toUpperCase(), 565+i*40, 700);
+    text(name.get(i).toUpperCase(), textx[i]+i*40, 700);
   }
 }
