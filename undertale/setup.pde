@@ -1,5 +1,3 @@
-Movie gameover;
-
 Gif move;
 Gif up;
 
@@ -19,15 +17,12 @@ AudioPlayer start;
 AudioPlayer up1;
 AudioPlayer gv;
 
-ArrayList<Boolean> hmovem;
-
 
 void setup()
 {
   move = new Gif(this, "movie/undynemove.gif");
   move.loop();
   up = new Gif(this, "movie/up.gif");
-  gameover = new Movie(this, "gameover.mp4");
 
   minim = new Minim(this);
   titlebgm = minim.loadFile("sound/titlebgm.mp3");
@@ -126,6 +121,7 @@ void setup()
   blockl = loadImage("object/blockl.png");
   blocku = loadImage("object/blocku.png");
   blockd = loadImage("object/blockd.png");
+  bh = loadImage("asdf.png");
   da0=loadImage("effect/da0.jpg");
   da1=loadImage("effect/da1.jpg");
   da2=loadImage("effect/da2.jpg");
@@ -136,6 +132,9 @@ void setup()
   da7=loadImage("effect/da7.jpg");
   da8=loadImage("effect/da8.jpg");
   da9=loadImage("effect/da9.jpg");
+  over=loadImage("gameover.png");
+  over1=loadImage("over1.png");
+  over2=loadImage("over2.png");
 
   // b = new Battle();
   e = new Explain();
@@ -185,4 +184,12 @@ void setup()
     }
   }
   ta[0].c=1;
+
+  spr = new Spread[6];
+  spr[0] = new Spread(gx, gy, -4, 4, 10);
+  spr[1] = new Spread(gx, gy, 1.5, 6, 20);
+  spr[2] = new Spread(gx, gy, 3.5, 4, 20);
+  spr[3] = new Spread(gx, gy, 3.5, 3.5, 20);
+  spr[4] = new Spread(gx, gy, 3, 1.5, 20);
+  spr[5] = new Spread(gx, gy, 6, 1.5, 10);
 }

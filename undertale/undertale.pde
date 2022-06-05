@@ -9,6 +9,8 @@ import ddf.minim.ugens.*;
 import processing.video.*;
 import gifAnimation.*;
 
+Spread [] spr;
+Spread spread;
 Tama [] ta;
 Tama tama;
 Explain e;
@@ -32,6 +34,7 @@ PImage white;
 PImage blocku, blockd, blockr, blockl;
 
 ArrayList <Integer> random;
+ArrayList<Boolean> hmovem;
 
 int once=0;
 int skip=0;
@@ -42,7 +45,7 @@ int battlec=0;
 int htint=255;
 int hit=0;
 int recoverp;
-float scene=0;
+float scene=2;
 int supi=0;
 int scount=0;
 int undynetint=255;
@@ -222,18 +225,7 @@ void draw()
       } else
         if (scene==2)
         {
-          Time++;
-          if (Time>=900)
-          {
-            gv.close();
-            Time=0;
-            scene=0;
-          }
-          gv.play();
-          gameover.play();
-          gameover.read();
-          imageMode(CENTER);
-          image(gameover, width/2, height/2, 1000, 600);
+          gameover();
         } else
           if (scene==1)
           {
@@ -393,8 +385,8 @@ void draw()
 
               ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case swi:
-              /* battlec=14;
-               sep=true;*/
+              battlec=14;
+               sep=true;
 
               if (battlec>=15)
               {
@@ -1115,6 +1107,12 @@ void hit()
     {
       bgm.pause();
       move.stop();
+      spr[0] = new Spread(gx+13.5, gy+13.5, -4, 4, 10);
+      spr[1] = new Spread(gx+13.5, gy+13.5, 1.5, 6, 20);
+      spr[2] = new Spread(gx+13.5, gy+13.5, 3.5, 4, 20);
+      spr[3] = new Spread(gx+13.5, gy+13.5, 3.5, 3.5, 20);
+      spr[4] = new Spread(gx+13.5, gy+13.5, 3, 1.5, 20);
+      spr[5] = new Spread(gx+13.5, gy+13.5, 6, 1.5, 10);
       scene=2;
     }
   }
